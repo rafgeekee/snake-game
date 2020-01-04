@@ -24,30 +24,24 @@
   * OTHER DEALINGS IN THE SOFTWARE.
   */
 
-// load sound
-var mainMusic = new Howl({
-    urls: ['/music/RafGeekeeSnake.ogg'],
-    loop: true
-});
-var foodMusic = document.getElementById("food");
-var goMusic = document.getElementById("gameOver");
 
-var files = [foodMusic, goMusic];
+var files = [];
 var counter = 0;
 
 var start = document.getElementById("start"),
     loading = document.getElementById("loading");
 
-for (var i = 0; i < files.length; i++) {
-    var file = files[i];
-    file.addEventListener("loadeddata", function() {
-        counter++;
-        var percent = Math.floor((counter / files.length) * 100);
-        loading.innerHTML = "Loading " + percent + "%";
-        if (percent == 100) showButton();
-    });
-}
+//for (var i = 0; i < files.length; i++) {
+//   var file = files[i];
+//    file.addEventListener("loadeddata", function() {
+//        counter++;
+//        var percent = Math.floor((counter / files.length) * 100);
+//        loading.innerHTML = "Loading " + percent + "%";
+//        if (percent == 100) showButton();
+//    });
+//}
 
+showButton();
 function showButton() {
     start.style.top = "30%";
     loading.style.top = "100%";
@@ -67,7 +61,6 @@ canvas.width = w;
 var reset, scoreText, menu, reMenu, score = 0;
 
 function init() {
-    mainMusic.play();
     menu.style.zIndex = "-1";
 
     var snake,
@@ -189,9 +182,6 @@ function init() {
             snake.unshift(tail);
             score += 1;
             scoreText.innerHTML = "Score: " + score;
-            foodMusic.pause();
-            foodMusic.currentTime = 0;
-            foodMusic.play();
 
             //Increase speed
             if (speed <= 45) speed++;
@@ -242,8 +232,6 @@ function init() {
 
     function gameover() {
         clearInterval(game_loop);
-        mainMusic.stop();
-        goMusic.play();
 
         var tweet = document.getElementById("tweet");
         tweet.href = 'http://twitter.com/share?url=http://bit.ly/GeekeeSnake&text=I scored ' + score + ' points in Raf Geekee\'s Snake game. Can you do beat my score? ';
