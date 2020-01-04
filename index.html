@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Snake By Raf Geekee</title>
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body>
+<canvas id="canvas"></canvas>
+
+<div id="reMenu">
+	<h1 id="snake2">Snake</h1>
+	<p id="info2">Game Over</p>
+	<a href="javascript: void(0)" id="restart" onclick="reset()" >Restart</a>
+	<a href="#" id="tweet" target="_blank" rel="nofollow">Tweet My Score</a>
+</div>
+
+<div id="menu">
+	<h1 id="snake">Snake</h1>
+	<p id="info">by <a target="_blank" rel="nofollow" href="http://rafgeekee.com">Raf Geekee</a></p>
+	<a href="javascript: void(0)" id="start" onclick="init()" >Start</a>
+	<p id="loading">Loading...</p>
+</div>
+
+<p id="score">Score: 0</p>
+<p><a href="http://rafgeekee.com">© Raf Geekee - 2014</a></p>
+
+<audio id="gameOver">
+	<source src="http://dl.dropbox.com/u/26141789/canvas/snake/go.mp3" type="audio/mp3" />
+	<source src="http://dl.dropbox.com/u/26141789/canvas/snake/go.ogg" type="audio/ogg"/>
+</audio>
+
+<audio id="food">
+	<source src="http://dl.dropbox.com/u/26141789/canvas/snake/food.mp3" type="audio/mp3" />
+	<source src="http://dl.dropbox.com/u/26141789/canvas/snake/food.ogg" type="audio/ogg"/>
+</audio>
+
+<script src="js/howler.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
